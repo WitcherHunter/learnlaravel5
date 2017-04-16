@@ -13,4 +13,7 @@ class CommentController extends Controller {
             return redirect()->back()->withInput()->withErrors('评论发表失败！');
         }
     }
+
+
+
 }
