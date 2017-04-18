@@ -15,14 +15,22 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('admin/article') }}" method="POST">
-                        {!! csrf_field() !!}
-                        <input type="text" name="title" class="form-control" required="required" placeholder="请输入标题">
-                        <br>
-                        <textarea name="body" rows="10" class="form-control" required="required" placeholder="请输入内容"></textarea>
-                        <br>
-                        <button class="btn btn-lg btn-info">新增文章</button>
-                    </form>
+                    {!! Form::open(['url' => 'admin/article','method' => 'post']) !!}
+
+                        <div class="form-group">
+                            {!! Form::label('title','标题:') !!}
+                            {!! Form::text('title',null,['class'=>'form-control','required' => 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('body','正文:') !!}
+                            {!! Form::textarea('body',null,['class' => 'form-control','required' => 'required']) !!}
+                        </div>
+                        <div class="form-group">
+                            {!! Form::submit('发表文章',['class'=>'btn btn-success form-control']) !!}
+                        </div>
+
+                    {!! Form::close() !!}
+
 
                 </div>
             </div>

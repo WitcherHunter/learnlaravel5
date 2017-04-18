@@ -8,6 +8,7 @@
     <title>Laravel</title>
 
     <link href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel='stylesheet' href="/css/all.css" type='text/css' media='all'/>
     <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
     <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
@@ -58,7 +59,15 @@
         </div>
     </nav>
 
-    @yield('content')
+    <body>
+    <div class="container">
+        <section class="content">
+            <div class="pad group">
+                @yield('content')
+            </div>
+        </section>
+    </div>
+    </body>
 
 </body>
 </html>

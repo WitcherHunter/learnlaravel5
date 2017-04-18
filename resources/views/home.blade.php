@@ -1,37 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+@extends('layouts.app')
 
-    <title>Learn Laravel 5</title>
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Welcome</div>
 
-    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <div id="title" style="text-align: center;">
-        <h1>Learn Laravel 5</h1>
-        <div style="padding: 5px; font-size: 16px;">Learn Laravel 5</div>
-    </div>
-    <hr>
-    <div id="content">
-        <ul>
-            @foreach ($articles as $article)
-            <li style="margin: 50px 0;">
-                <div class="title">
-                    <a href="{{ url('article/'.$article->id) }}">
-                        <h4>{{ $article->title }}</h4>
-                    </a>
+                    <div class="panel-body">
+                        @foreach($articles as $article)
+                            <article class="format-image group">
+                                <h2 class="post-title pad">
+                                    <a href="/article/{{ $article->id }}"> {{ $article->title }}</a>
+                                </h2>
+                                <div class="post-inner">
+                                    <div class="post-deco">
+                                        <div class="hex hex-small">
+                                            <div class="hex-inner"><i class="fa"></i></div>
+                                            <div class="corner-1"></div>
+                                            <div class="corner-2"></div>
+                                        </div>
+                                    </div>
+                                    <div class="post-content pad">
+                                        <div class="entry custome">
+                                            {{ $article->intro }}
+                                        </div>
+                                        <a class="more-link-custom" href="/article/{{ $article->id }}"><span><i>更多</i></span></a>
+                                    </div>
+                                </div>
+                            </article>
+                        @endforeach
+                    </div>
                 </div>
-                <div class="body">
-                    <p>{{ $article->body }}</p>
-                </div>
-            </li>
-            @endforeach
-        </ul>
+            </div>
+        </div>
     </div>
-</body>
-</html>
+@endsection
